@@ -1,0 +1,38 @@
+<section class="catalog">
+  <div class="catalog__header">
+    <div>
+      <h1 class="catalog__title">Film Collection</h1>
+      <p class="catalog__subtitle">
+        Explore movies, search by title, and add your favorites.
+      </p>
+    </div>
+
+    <div class="catalog__search">
+      <input
+        appAutofocus
+        type="text"
+        class="catalog__input"
+        placeholder="Search films by title..."
+        [value]="searchQuery()"
+        (input)="onSearch($event)"
+      />
+    </div>
+  </div>
+
+  @if (filteredFilms().length > 0) {
+    <div class="catalog__grid">
+      @for (film of filteredFilms(); track film.id) {
+        <app-film-card
+          [film]="film"
+          (cardClick)="openFilmDetails($event)"
+          (favoriteToggle)="toggleFavorite($event)"
+        />
+      }
+    </div>
+  } @else {
+    <div class="catalog__empty">
+      <h2>Nothing found</h2>
+      <p>No films match your search query.</p>
+    </div>
+  }
+</section>

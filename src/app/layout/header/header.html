@@ -1,0 +1,24 @@
+<header class="header">
+  <div class="header__container">
+    <a routerLink="/" class="header__logo">
+      🎬 Film Collection
+    </a>
+
+    <nav class="header__nav">
+      <a
+        routerLink="/"
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{ exact: true }"
+      >
+        Home
+      </a>
+
+      <a
+        routerLink="/about"
+        routerLinkActive="active"
+      >
+        About
+      </a>
+    </nav>
+  </div>
+</header>

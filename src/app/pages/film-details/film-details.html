@@ -1,0 +1,40 @@
+<section class="details">
+  @if (film(); as selectedFilm) {
+    <button type="button" class="details__back" (click)="goBack()">
+      ← Back
+    </button>
+
+    <div class="details__content">
+      <img
+        class="details__poster"
+        [src]="selectedFilm.posterUrl"
+        [alt]="selectedFilm.title"
+      />
+
+      <div class="details__info">
+        <h1 class="details__title">{{ selectedFilm.title }}</h1>
+
+        <p class="details__meta">
+          {{ selectedFilm.year }} ·
+          {{ selectedFilm.genre }} ·
+          {{ selectedFilm.duration | duration }}
+        </p>
+
+        <p class="details__rating">
+          ★ {{ selectedFilm.rating }}
+        </p>
+
+        <p class="details__description">
+          {{ selectedFilm.description }}
+        </p>
+      </div>
+    </div>
+  } @else {
+    <div class="details__empty">
+      <h1>Film not found</h1>
+      <button type="button" class="details__back" (click)="goBack()">
+        Back to catalog
+      </button>
+    </div>
+  }
+</section>
